@@ -1,0 +1,2254 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,400&display=swap");
+
+/* ----------------------------- GLOBAL RESET ----------------------------- */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* Hago que al pulsar un ancla la página baje despacio (smooth).
+   La letra se hace más pequeña con la pantalla: 16px en 1920 y nunca
+   menos de 12px para que se siga leyendo bien en portátiles */
+html {
+  scroll-behavior: smooth;
+  font-size: clamp(12px, 0.8333vw, 16px);
+}
+
+body {
+  font-family: "Newsreader", serif;
+  color: #000;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ----------------------------- TYPOGRAPHY ----------------------------- */
+h4 {
+  font-family: "Jost", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+h3 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+p {
+  font-size: 1.625rem;
+  line-height: 1.4;
+}
+
+/* Dejo 5rem arriba al saltar a un ancla para que el nav no tape el título. Si no dejo este margen
+se comería parte del título. */
+section,
+.container,
+.map-item {
+  scroll-margin-top: 5rem;
+}
+
+/* ------------------------ SHARED TEXT AND BUTTONS ------------------------ */
+
+.label {
+  font-family: "Jost", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #595959;
+}
+
+.link {
+  font-family: "Jost", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  padding: 0 2rem;
+
+  font-family: "Jost", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #fff;
+}
+
+.btn-black {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #000;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid #fff;
+}
+
+/* En las fechas el fondo es claro, así que pongo el borde en negro */
+.date-actions .btn-outline {
+  border-color: #000;
+}
+
+.btn:hover {
+  opacity: 0.75;
+}
+
+/* Evito que estos textos salten de línea */
+.btn,
+.label,
+.link,
+.month {
+  white-space: nowrap;
+}
+
+/* ----------------------------- FIXED HEADER ----------------------------- */
+
+/* Dejo el nav fijo arriba al hacer scroll y por encima de todo con
+el z-index. Le añado transparencia con el rgba. */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5rem;
+  z-index: 999;
+
+  background-color: rgba(0, 0, 0, 0.85);
+  color: white;
+}
+
+.flex-container {
+  display: flex;
+  flex-flow: row nowrap;
+
+  /* Centro todos los elementos del contenedor */
+  justify-content: center;
+  align-items: center;
+
+  /* El contenedor ocupa todo el espacio de su elemento padre */
+  width: 100%;
+  height: 100%;
+}
+
+/* 1 + 8 + 1 = 192px / 1536px / 192px en 1920. Mismo margen izquierdo y derecho */
+.item-1,
+.item-3 {
+  flex: 1;
+  height: 100%;
+}
+
+.item-2 {
+  flex: 8;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hago la cabecera algo más ancha que el contenido (1728px) */
+.header .item-1,
+.header .item-3 {
+  flex: 0.5;
+}
+
+.header .item-2 {
+  flex: 9;
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  flex: 1;
+  font-family: "Jost", sans-serif;
+  font-weight: 300;
+  font-size: 1.75rem;
+  letter-spacing: 0.4em;
+}
+
+.nav {
+  flex: 3;
+
+  display: flex;
+  justify-content: end;
+}
+
+.menu-on {
+  display: flex;
+  gap: 3rem;
+  list-style-type: none;
+}
+
+.menu-on li a {
+  font-family: "Jost", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0.72;
+  transition: 0.3s;
+}
+
+.menu-on li a:hover {
+  opacity: 1;
+}
+
+.nav-collapse {
+  display: none;
+}
+
+/* -------------------------------- HERO -------------------------------- */
+
+.container {
+  width: 100%;
+  height: 100vh;
+  min-height: 680px;
+}
+
+.hero {
+  background-color: #000;
+  background-image: url("../img/hero.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: white;
+}
+
+.hero .item-2 {
+  align-items: flex-start;
+}
+
+.line-1 {
+  font-family: "Jost", sans-serif;
+  font-weight: 200;
+  font-size: 6rem;
+  letter-spacing: 0.4em;
+  line-height: 1;
+}
+
+.line-2 {
+  font-weight: 300;
+  font-size: 4rem;
+  line-height: 1.12;
+  margin-top: 4rem;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+/* ------------------------- SECTION HEADERS ------------------------- */
+
+.section-header {
+  width: 100%;
+  height: 15.625rem;
+  background-color: #000;
+  color: white;
+}
+
+.section-header-container {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-header-izda,
+.section-header-dcha {
+  flex: 1;
+}
+
+/* Dejo separación para que el título grande no toque la otra columna */
+.section-header-izda {
+  padding-right: 2rem;
+}
+
+.big-title {
+  font-family: "Jost", sans-serif;
+  font-weight: 300;
+  font-size: 3rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.6); /* me permite el sombreado leve que llevan los títulos grandes */
+}
+
+/* ----------------------------- BIOGRAPHY ----------------------------- */
+
+.biography {
+  width: 100%;
+}
+
+.biography-container {
+  width: 80%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.bio-text {
+  width: 100%;
+  padding: 9.375rem 0 8rem;
+
+  display: flex;
+  align-items: flex-start;
+}
+
+.bio-izda,
+.bio-dcha {
+  flex: 1;
+}
+
+.bio-izda {
+  padding-right: 3rem;
+}
+
+.bio-dcha {
+  padding-left: 3rem;
+  border-left: 1px solid #a9a9a9;
+}
+
+.bio-text strong {
+  font-weight: 600;
+}
+
+.milestones {
+  padding-left: 1.5rem;
+}
+
+.milestones li {
+  font-size: 1.625rem;
+  line-height: 1.4;
+}
+
+.bio-photo {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-image: url("../img/bio.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* ------------------------- GALLERY: SLIDER ------------------------- */
+
+/* Con order coloco cada parte: título y flechas arriba, fotos debajo
+   y los puntos al final */
+.carousel {
+  width: 100%;
+  padding-bottom: 8rem;
+
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 4rem 1rem;
+
+  /* El título ocupa el hueco que sobra y las flechas se quedan a la derecha */
+  .gallery-header {
+    order: 1;
+    flex: 1;
+  }
+
+  /* Pongo las flechas juntas y hago que no se encojan */
+  .arrows {
+    order: 2;
+    flex: none;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .viewport {
+    order: 3;
+    flex: 0 0 100%;
+  }
+
+  .arrow {
+    /* Flechas izquierda y derecha */
+    width: 4rem;
+    height: 4rem;
+    border: 1px solid #000;
+    border-radius: 50%;
+    cursor: pointer;
+
+    user-select: none; /* Evito que se seleccione la flecha al hacer click */
+    transition: 0.3s;
+
+    /* Las oculto todas y según la posición enseño las que tocan */
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    /* Al pasar por encima la flecha crece un poco */
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  /* La flecha que no lleva a ningún sitio sale apagada, cuando corresponde */
+  .p1,
+  .n3 {
+    opacity: 0.3;
+    cursor: default;
+
+    &:hover {
+      transform: none;
+    }
+  }
+
+  .dots {
+    order: 4;
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+
+    label {
+      width: 0.75rem;
+      height: 0.75rem;
+      border: 1px solid #000;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+  }
+}
+
+/* Oculto los radio buttons */
+.carousel input {
+  display: none;
+}
+
+.gallery-header h1 {
+  margin-top: 0.4rem;
+}
+
+.viewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* La cinta mide 3 veces la ventana más los huecos, para que cada pasada de
+3 fotos cuadre justo con la pantalla */
+.slider {
+  display: flex;
+  gap: 3rem;
+  width: calc(300% + 6rem);
+  transition: transform 0.4s ease;
+
+  .card {
+    /* 9 fotos y 8 huecos repartidos en la cinta */
+    flex: 0 0 calc((100% - 24rem) / 9);
+  }
+
+  .pic {
+    width: 100%;
+    aspect-ratio: 1;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #222;
+  }
+
+  .caption {
+    margin-top: 1rem;
+    font-size: 1.75rem;
+  }
+
+  .card:nth-child(1) .pic { background-image: url("../img/gallery-1.jpg"); }
+  .card:nth-child(2) .pic { background-image: url("../img/gallery-2.jpg"); }
+  .card:nth-child(3) .pic { background-image: url("../img/gallery-3.jpg"); }
+  .card:nth-child(4) .pic { background-image: url("../img/gallery-4.jpg"); }
+  .card:nth-child(5) .pic { background-image: url("../img/gallery-5.jpg"); }
+  .card:nth-child(6) .pic { background-image: url("../img/gallery-6.jpg"); }
+  .card:nth-child(7) .pic { background-image: url("../img/gallery-7.jpg"); }
+  .card:nth-child(8) .pic { background-image: url("../img/gallery-8.jpg"); }
+  .card:nth-child(9) .pic { background-image: url("../img/gallery-9.jpg"); }
+}
+
+/* Si hago clic en el primer punto, la cinta se queda en su sitio (fotos 1-3) */
+#s1:checked ~ .viewport .slider {
+  transform: translateX(0);
+}
+
+/* Si hago clic en el segundo punto, muevo un tercio de la cinta más un
+   hueco (fotos 4-6) */
+#s2:checked ~ .viewport .slider {
+  transform: translateX(calc((100% + 3rem) / -3));
+}
+
+/* Si hago clic en el tercer punto, muevo dos tercios (fotos 7-9) */
+#s3:checked ~ .viewport .slider {
+  transform: translateX(calc((100% + 3rem) * -2 / 3));
+}
+
+/* Resalto el punto activo */
+#s1:checked ~ .dots label[for="s1"],
+#s2:checked ~ .dots label[for="s2"],
+#s3:checked ~ .dots label[for="s3"] {
+  background-color: #000;
+}
+
+/* Funcionamiento de las flechas */
+
+/* Si estoy en el primer punto, izquierda apagada y la derecha va a s2 */
+#s1:checked ~ .arrows .p1,
+#s1:checked ~ .arrows .n1 {
+  display: flex;
+}
+
+/* Si estoy en el punto del centro tienen que estar las dos flechas */
+#s2:checked ~ .arrows .p2,
+#s2:checked ~ .arrows .n2 {
+  display: flex;
+}
+
+/* Si estoy en el tercer punto, la izquierda va a s2 y derecha apagada */
+#s3:checked ~ .arrows .p3,
+#s3:checked ~ .arrows .n3 {
+  display: flex;
+}
+
+/* ------------------------------- ALBUMS ------------------------------- */
+
+.latest {
+  width: 100%;
+  background-color: #000;
+  color: white;
+}
+
+/* Sin align-items los tres bloques se estiran al alto de la portada,
+   así Spotify mide lo mismo que ella */
+.latest-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 6rem 0;
+
+  display: flex;
+  gap: 3rem;
+}
+
+/* Uso en los flex los anchos del diseño (576, 400 y 464) para que
+   guarden la misma proporción */
+.latest-cover {
+  flex: 576;
+  aspect-ratio: 1;
+  padding: 1rem;
+  border: 1px solid #444;
+}
+
+.cover {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.cover-30 { background-image: url("../img/album-30.jpg"); }
+.cover-25 { background-image: url("../img/album-25.jpg"); }
+.cover-21 { background-image: url("../img/album-21.jpg"); }
+.cover-19 { background-image: url("../img/album-19.jpg"); }
+
+.latest-text {
+  flex: 400;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.album-number {
+  font-size: 8rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.album-info {
+  font-family: "Jost", sans-serif;
+  font-size: 1.25rem;
+  color: #595959;
+  margin: 2rem 0 1.5rem;
+}
+
+.latest .album-info {
+  color: #b2b2b2;
+}
+
+.latest-spotify {
+  flex: 464;
+}
+
+.latest-spotify iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 12px;
+}
+
+/* Hago botones redondos con el icono de cada plataforma */
+.platforms {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1.5rem 2.25rem;
+  margin-top: 2rem;
+}
+
+.platform {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  border: 1px solid #595959;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: 0.3s;
+}
+
+.platform:hover .circle {
+  transform: scale(1.1);
+}
+
+/* Con clamp los textos pequeños nunca bajan de 12px */
+.platform .label {
+  font-size: clamp(12px, 0.875rem, 1rem);
+  letter-spacing: 0.2em;
+}
+
+.latest .platform .label {
+  color: #ddd;
+}
+
+.albums {
+  width: 100%;
+}
+
+.albums-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 6rem 0 2rem;
+
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 4rem;
+}
+
+/* Estiro la portada al alto de la tarjeta y centro el título y el texto */
+.album {
+  display: flex;
+  align-items: stretch;
+  background-color: #ededed;
+}
+
+.album-title,
+.album-text {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.album-cover {
+  flex: 0 0 22rem;
+  aspect-ratio: 1;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.album-title {
+  flex: 1;
+  padding: 0 3rem;
+}
+
+.album-text {
+  flex: 2.5;
+  padding: 2rem 3rem 2rem 0;
+}
+
+.album-text .album-info {
+  margin-top: 0;
+}
+
+.album-text p {
+  max-width: 36rem;
+}
+
+/* ------------------------------- VIDEOS ------------------------------- */
+
+.videos {
+  width: 100%;
+}
+
+.videos-container {
+  width: 80%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.videos-header {
+  padding: 8rem 0 6rem;
+
+  display: flex;
+  align-items: center;
+}
+
+.videos-name,
+.videos-legend {
+  flex: 1;
+}
+
+.videos-legend {
+  padding-left: 3rem;
+  border-left: 1px solid #a9a9a9;
+}
+
+.videos-legend p {
+  color: #595959;
+  max-width: 36rem;
+}
+
+.featured {
+  width: 100%;
+  background-color: #000;
+  color: white;
+}
+
+.featured-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 7rem 0;
+
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+}
+
+.featured-izda {
+  flex: 11;
+}
+
+.featured-dcha {
+  flex: 5;
+  position: relative;
+}
+
+.video-frame {
+  padding: 1rem;
+  border: 1px solid #444;
+}
+
+/* El vídeo ocupa todo el ancho en formato 16:9 con 
+aspect-ratio y le quito el borde */
+.video-player {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  background-color: #000;
+}
+
+/* Pongo un número grande de fondo, detrás del texto */
+.featured-dcha,
+.video-text {
+  z-index: 0;
+}
+
+.bg-number {
+  position: absolute;
+  top: -2rem;
+  right: 0;
+  z-index: -1;
+
+  font-size: 12rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.08);
+}
+
+.featured-dcha h4,
+.video-text h4 {
+  font-size: 1.125rem;
+  letter-spacing: 0.4em;
+}
+
+.featured-dcha h1 {
+  margin: 1rem 0 1.5rem;
+}
+
+.featured-dcha p {
+  margin-bottom: 2rem;
+}
+
+.videos-body {
+  padding-top: 6rem;
+
+  display: flex;
+  gap: 3rem;
+}
+
+.video-card {
+  flex: 1;
+}
+
+/* Le doy una sombra suave a los vídeos */
+.video-card .video-player {
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.25);
+}
+
+.video-text {
+  position: relative;
+  padding-top: 1.5rem;
+}
+
+.video-text .bg-number {
+  top: 0;
+  font-size: 9rem;
+  color: rgba(0, 0, 0, 0.08);
+}
+
+.video-text h4 {
+  color: #595959;
+}
+
+.video-text h3 {
+  font-weight: 400;
+  margin: 0.5rem 0;
+}
+
+.video-text p {
+  margin-bottom: 1.5rem;
+}
+
+.videos-footer {
+  padding: 5rem 0 8rem;
+
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.75rem;
+}
+
+/* ------------------------------- ON TOUR ------------------------------- */
+
+.tour-photo {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 100vh;
+  background-image: url("../img/tour.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.tour {
+  width: 100%;
+}
+
+.tour-container {
+  width: 100%;
+
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.next-show {
+  width: 100%;
+  background-color: #000;
+  color: white;
+}
+
+.next-show-body {
+  width: 80%;
+  margin: 0 auto;
+  padding: 5rem 0;
+
+  display: flex;
+  align-items: stretch;
+}
+
+/* Igual que en el álbum, uso en los flex los anchos del diseño */
+.next-date {
+  flex: 288;
+  padding-right: 3rem;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+
+.next-date .day {
+  font-size: 10rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.month {
+  font-family: "Jost", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+
+.next-place {
+  flex: 700;
+  padding: 0 3rem 0 4rem;
+  border-left: 1px solid #444;
+  border-right: 1px solid #444;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.next-place .city {
+  font-size: 8rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.venue {
+  font-family: "Jost", sans-serif;
+  font-size: 1.5rem;
+}
+
+.country {
+  font-family: "Jost", sans-serif;
+  font-size: 1.125rem;
+  letter-spacing: 0.08em;
+  color: #8a8a8a;
+  margin-top: 0.25rem;
+}
+
+.next-actions {
+  flex: 448;
+  padding-left: 4rem;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.more-dates {
+  width: 80%;
+  padding: 4rem 0;
+
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1.5rem;
+}
+
+.more-dates .label {
+  color: #000;
+}
+
+.dates-body {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.date-card {
+  flex: 1;
+  padding: 1.5rem;
+  background-color: #ededed;
+
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.date-card .day {
+  font-size: 5rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.date-card .month {
+  font-size: clamp(12px, 0.875rem, 1rem);
+  letter-spacing: 0.1em;
+  padding: 0.75rem 0 1rem;
+  border-bottom: 1px solid #c6c6c6;
+}
+
+.date-card .city {
+  font-size: 2.25rem;
+  margin-top: 1rem;
+}
+
+.date-card .venue {
+  font-size: clamp(12px, 0.875rem, 1rem);
+  margin-top: 0.25rem;
+}
+
+/* El país en gris oscuro para que se lea bien sobre el fondo claro */
+.date-card .country {
+  font-size: clamp(12px, 0.8rem, 1rem);
+  color: #595959;
+}
+
+.date-actions {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+.date-actions .btn {
+  height: 2.6rem;
+  padding: 0 1rem;
+  font-size: clamp(12px, 0.75rem, 1rem);
+  letter-spacing: 0.1em;
+}
+
+.tour-map {
+  width: 80%;
+  padding: 4rem 0 8rem;
+  border-top: 1px solid #b4b4b4;
+}
+
+/* Oculto todos los mapas */
+.map-item {
+  display: none;
+}
+
+.map-item h3 {
+  margin-bottom: 0.5rem;
+}
+
+.address {
+  display: block;
+  font-family: "Jost", sans-serif;
+  font-size: 1.375rem;
+  color: #595959;
+  margin-bottom: 2.25rem;
+}
+
+.map {
+  width: 100%;
+  aspect-ratio: 96 / 35;
+  background-color: #ededed;
+}
+
+.map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* London es el que se ve al principio. */
+.map-london {
+  display: block;
+}
+
+/* :target es el mapa al que lleva el ancla pulsada. */
+.map-item:target {
+  display: block;
+}
+
+/* Oculto London */
+.map-item:target ~ .map-london {
+  display: none;
+}
+
+/* ------------------------------ CONTACT ------------------------------ */
+
+.contact {
+  width: 100%;
+}
+
+.contact-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 6rem 0 8rem;
+
+  display: flex;
+  align-items: flex-start;
+}
+
+.contact-izda,
+.contact-dcha {
+  flex: 1;
+}
+
+.contact-izda {
+  padding-right: 3rem;
+}
+
+.contact-dcha {
+  padding-left: 3rem;
+}
+
+.intro {
+  font-size: 1.75rem;
+  color: #595959;
+  max-width: 35rem;
+}
+
+.contact-photo {
+  width: 100%;
+  aspect-ratio: 720 / 520;
+  margin: 3rem 0 3.5rem;
+  background-image: url("../img/contact.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+}
+
+.note {
+  display: block;
+  width: 100%;
+  font-family: inherit;
+  font-size: 2rem;
+  font-style: italic;
+  color: #000;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid #000;
+  padding: 0.75rem 0 1.75rem;
+  margin: 0.5rem 0 1.5rem;
+  resize: none;
+  outline: none;
+}
+
+.note:focus {
+  border-bottom-width: 2px;
+}
+
+.mail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  height: 9.375rem;
+  border-top: 1px solid #b4b4b4;
+}
+
+.mail:nth-child(3) {
+  border-bottom: 1px solid #b4b4b4;
+}
+
+.mail-text {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.5rem;
+}
+
+.mail-address {
+  font-size: 3rem;
+}
+
+.mail:hover .mail-address {
+  text-decoration: underline;
+}
+
+.follow {
+  display: block;
+  margin: 5rem 0 1.5rem;
+}
+
+.socials {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  border: 1px solid #000;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+/* El nombre de la red solo lo enseño en móvil */
+.social span {
+  display: none;
+}
+
+.social:hover {
+  transform: scale(1.1);
+}
+
+/* -------------------------------- SHOP -------------------------------- */
+
+.shop {
+  width: 100%;
+  background-color: #e2e2e2;
+}
+
+.shop-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 8rem 0;
+
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.shop-header {
+  margin-bottom: 4rem;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.5rem 2rem;
+}
+
+.shop-body {
+  display: flex;
+  gap: 2rem;
+}
+
+.product {
+  flex: 1;
+
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+}
+
+.product-img {
+  width: 100%;
+  aspect-ratio: 1;
+  margin-bottom: 1.25rem;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.product:nth-child(1) .product-img { background-image: url("../img/shop-1.jpg"); }
+.product:nth-child(2) .product-img { background-image: url("../img/shop-2.jpg"); }
+.product:nth-child(3) .product-img { background-image: url("../img/shop-3.jpg"); }
+.product:nth-child(4) .product-img { background-image: url("../img/shop-4.jpg"); }
+
+.product-name {
+  font-family: "Jost", sans-serif;
+  font-size: 1.375rem;
+  font-weight: 500;
+}
+
+.product-info {
+  font-family: "Jost", sans-serif;
+  font-size: 1rem;
+  color: #595959;
+  margin: 0.375rem 0;
+}
+
+.price {
+  font-family: "Jost", sans-serif;
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+/* ------------------------------- FOOTER ------------------------------- */
+
+footer {
+  width: 100%;
+  background-color: #000;
+  color: white;
+}
+
+footer .label {
+  color: #b3b3b3;
+}
+
+.footer-container {
+  width: 80%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.footer-top {
+  padding: 5rem 0 4rem;
+
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  gap: 3rem 0;
+}
+
+/* Si no caben las dos columnas las pongo una debajo de otra */
+.footer-izda,
+.footer-dcha {
+  flex: 1 1 20rem;
+}
+
+.footer-logo {
+  font-family: "Jost", sans-serif;
+  font-weight: 200;
+  font-size: 6rem;
+  letter-spacing: 0.4em;
+  line-height: 1;
+}
+
+.tagline {
+  display: block;
+  font-family: "Jost", sans-serif;
+  font-size: 1.125rem;
+  color: #b3b3b3;
+  margin-top: 1.5rem;
+}
+
+.newsletter {
+  font-size: 1.5rem;
+  line-height: 1.1;
+  max-width: 40rem;
+  margin: 0.75rem 0 1.75rem;
+}
+
+.email-field {
+  display: block;
+  width: 100%;
+  font-family: inherit;
+  font-size: 1.25rem;
+  font-style: italic;
+  color: #fff;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 0.875rem;
+  margin-bottom: 1.25rem;
+  outline: none;
+}
+
+/* Le doy color al texto de ejemplo */
+.email-field::placeholder {
+  color: #b3b3b3;
+}
+
+/* El menú a la izquierda y Legal a la derecha */
+.footer-cols {
+  padding: 2.5rem 0;
+  border-top: 1px solid #6b6b6b;
+  border-bottom: 1px solid #6b6b6b;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem 4rem;
+}
+
+.footer-col {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+}
+
+/* Los enlaces van en fila, con la misma letra que el nav */
+.footer-links {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0.75rem 2.5rem;
+  list-style-type: none;
+}
+
+.footer-links a {
+  font-family: "Jost", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0.72;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+}
+
+.footer-bottom {
+  padding: 1.5rem 0 2.5rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copyright {
+  font-family: "Jost", sans-serif;
+  font-size: 1rem;
+  color: #b3b3b3;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-icons a {
+  display: flex;
+  opacity: 0.85;
+}
+
+.footer-icons a:hover {
+  opacity: 1;
+}
+
+/* ------------------------------ LAPTOP ------------------------------ */
+
+/* Este punto de corte no estaba en la práctica de clase. Lo añado porque al
+   probar la web en portátiles algunas partes se rompían: las 5 fechas no
+   cabían en una fila y el título grande se salía de su columna */
+@media screen and (max-width: 1280px) {
+  /* Dejo que el título grande baje de línea ("CONTACT &" / "SHOP") */
+  .big-title {
+    white-space: normal;
+  }
+
+  /* Más fechas: pongo 3 por fila, todas del mismo ancho */
+  .dates-body {
+    flex-flow: row wrap;
+  }
+
+  .date-card {
+    flex: 0 0 calc((100% - 3rem) / 3);
+  }
+
+  .mail-address {
+    font-size: 2.5rem;
+  }
+
+  /* La portada crece y encoge con la tarjeta */
+  .album-cover {
+    flex: 0 0 24%;
+  }
+
+  .album-title {
+    flex: 1.5;
+    padding: 0 2rem;
+  }
+
+  /* Hago los antetítulos un poco más pequeños para que quepan en una línea */
+  .album-title h4,
+  .next-date h4 {
+    font-size: 1rem;
+    letter-spacing: 0.3em;
+  }
+
+  .platforms {
+    gap: 1.5rem 1.25rem;
+  }
+}
+
+/* --------------------------- SMALL LAPTOP --------------------------- */
+
+/* Este también lo añado yo ya que por debajo de 1130px el álbum 30 ya no cabía en
+   tres columnas y el texto quedaba más alto que la portada, así que pongo
+   portada y texto arriba y Spotify debajo */
+@media screen and (max-width: 1130px) {
+  .latest-container {
+    flex-flow: row wrap;
+    align-items: center;
+  }
+
+  .latest-cover,
+  .latest-text {
+    flex: 1 1 40%;
+  }
+
+  .latest-spotify {
+    flex: 1 1 100%;
+  }
+
+  .latest-spotify iframe {
+    height: 352px;
+  }
+
+  /* Hago la portada más ancha para que no quede más baja que el texto */
+  .album-cover {
+    flex: 0 0 32%;
+  }
+
+  /* Junto un poco las letras de los antetítulos de vídeos para que
+     "OFFICIAL VIDEO · 30" quepa en una línea */
+  .featured-dcha h4,
+  .video-text h4 {
+    letter-spacing: 0.25em;
+  }
+
+  /* Quito algo de relleno en el próximo concierto para que los botones
+     Tickets y Map quepan */
+  .next-place {
+    padding: 0 2rem 0 2.5rem;
+  }
+
+  .next-actions {
+    padding-left: 2.5rem;
+  }
+}
+
+/* ------------------------------ TABLET ------------------------------ */
+
+@media screen and (max-width: 955px) {
+  /* Vuelvo a la letra de 16px */
+  html {
+    font-size: 16px;
+  }
+
+  /* Hago el icono del menú hamburguesa con seis líneas */
+  .menu-on {
+    display: none;
+  }
+
+  .nav-collapse {
+    display: flex;
+
+    width: 35px;
+    height: 30px;
+  }
+
+  .navicon {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .navicon span {
+    width: 50%;
+    display: inline-block;
+    position: absolute;
+
+    height: 3px;
+    background-color: white;
+  }
+
+  .navicon span:nth-child(1) { top: 0; left: 0; }
+  .navicon span:nth-child(2) { top: 0; right: 0; }
+  .navicon span:nth-child(3) { top: 13px; left: 0; }
+  .navicon span:nth-child(4) { top: 13px; right: 0; }
+  .navicon span:nth-child(5) { bottom: 0; left: 0; }
+  .navicon span:nth-child(6) { bottom: 0; right: 0; }
+
+  .item-1,
+  .item-3,
+  .header .item-1,
+  .header .item-3 {
+    display: none;
+  }
+
+  .item-2,
+  .header .item-2 {
+    flex: 1;
+    padding: 0 5%;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  p,
+  .milestones li {
+    font-size: 1.25rem;
+  }
+
+  .line-1 {
+    font-size: 4.5rem;
+  }
+
+  .line-2 {
+    font-size: 3rem;
+  }
+
+  .big-title {
+    font-size: 1.5rem;
+    letter-spacing: 0.3em;
+  }
+
+  .section-header-container,
+  .biography-container,
+  .latest-container,
+  .albums-container,
+  .videos-container,
+  .featured-container,
+  .next-show-body,
+  .more-dates,
+  .tour-map,
+  .contact-container,
+  .shop-container,
+  .footer-container {
+    width: 90%;
+  }
+
+  .section-header {
+    height: 12rem;
+  }
+
+  .bio-text {
+    padding: 5rem 0;
+  }
+
+  .carousel {
+    padding-bottom: 5rem;
+  }
+
+  .album-number {
+    font-size: 6rem;
+  }
+
+  /* Pongo el último álbum en columna: portada, texto y Spotify uno debajo
+     de otro */
+  .latest-container {
+    flex-flow: column nowrap;
+    align-items: flex-start;
+  }
+
+  .latest-cover,
+  .latest-text,
+  .latest-spotify {
+    flex: none;
+    width: 100%;
+  }
+
+  .album {
+    flex-flow: row wrap;
+  }
+
+  /* La portada ocupa un 35% de la tarjeta */
+  .album-cover {
+    flex: 0 0 35%;
+  }
+
+  .album-text {
+    flex: 1 1 100%;
+    padding: 0 2rem 2rem;
+  }
+
+  .album-text .album-info {
+    margin-top: 1.5rem;
+  }
+
+  .featured-container {
+    flex-flow: column nowrap;
+    align-items: stretch;
+    gap: 3rem;
+  }
+
+  /* Pongo los vídeos en lista: vídeo a la izquierda y texto a la derecha */
+  .videos-body {
+    flex-flow: column nowrap;
+    gap: 2.5rem;
+  }
+
+  .video-card {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .video-card .video-player {
+    flex: none;
+    width: 45%;
+  }
+
+  .video-text {
+    flex: 1;
+    padding-top: 0;
+  }
+
+  .video-text .link {
+    font-size: 0.875rem;
+    letter-spacing: 0.15em;
+  }
+
+  /* Hago los antetítulos más pequeños para que vayan en una línea */
+  .featured-dcha h4,
+  .video-text h4,
+  .latest-text h4 {
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+  }
+
+  .next-show-body {
+    flex-flow: row wrap;
+    gap: 2rem 0;
+  }
+
+  .next-date .day {
+    font-size: 7rem;
+  }
+
+  .next-place {
+    flex: 1 1 60%;
+    border-right: 0;
+    padding-right: 0;
+  }
+
+  .next-place .city {
+    font-size: 5rem;
+  }
+
+  .next-actions {
+    flex: 1 1 100%;
+    flex-flow: row nowrap;
+    padding-left: 0;
+  }
+
+  .next-actions .btn {
+    flex: 1;
+  }
+
+  /* Pongo 2 fechas por fila, todas del mismo ancho */
+  .date-card {
+    flex: 0 0 calc((100% - 1.5rem) / 2);
+  }
+
+  .date-card .city {
+    font-size: 2rem;
+  }
+
+  .map {
+    aspect-ratio: 4 / 3;
+  }
+
+  /* Pongo el contacto en una columna: texto y foto arriba, correos y
+     redes debajo */
+  .contact-container {
+    flex-flow: column nowrap;
+    gap: 4rem;
+  }
+
+  .contact-izda,
+  .contact-dcha {
+    width: 100%;
+    padding: 0;
+  }
+
+  .mail-address {
+    font-size: 2rem;
+  }
+
+  .shop-body {
+    flex-flow: row wrap;
+  }
+
+  .product {
+    flex: 1 1 40%;
+  }
+
+  .footer-logo {
+    font-size: 4rem;
+  }
+}
+
+/* ------------------------------ MOBILE ------------------------------ */
+
+@media screen and (max-width: 500px) {
+  h4 {
+    font-size: 0.875rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  p,
+  .milestones li {
+    font-size: 1.125rem;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+  }
+
+  .hero {
+    background-position: 65% center;
+  }
+
+  .hero .item-2 {
+    justify-content: flex-end;
+    padding-bottom: 4rem;
+  }
+
+  .line-1 {
+    font-size: 3.5rem;
+    letter-spacing: 0.3em;
+  }
+
+  .line-2 {
+    font-size: 1.9rem;
+    margin-top: 1.5rem;
+  }
+
+  /* Pongo los dos botones del hero en la misma fila, mitad y mitad */
+  .hero-buttons {
+    flex-flow: row nowrap;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .hero-buttons .btn {
+    flex: 1;
+  }
+
+  .btn {
+    height: 3rem;
+    padding: 0 1rem;
+    font-size: 0.75rem;
+  }
+
+  .link {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+  }
+
+  /* En la cabecera de sección pongo el título pequeño arriba y el h1 debajo */
+  .section-header {
+    height: auto;
+    padding: 3rem 0;
+  }
+
+  .section-header-container {
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .big-title {
+    font-size: 1.25rem;
+    letter-spacing: 0.3em;
+  }
+
+  .bio-text {
+    flex-flow: column nowrap;
+    gap: 3rem;
+    padding: 3rem 0;
+  }
+
+  .bio-izda {
+    padding-right: 0;
+  }
+
+  .bio-dcha {
+    padding: 3rem 0 0;
+    border-left: 0;
+    border-top: 1px solid #a9a9a9;
+  }
+
+  /* Galería: hago las fotos más pequeñas y pongo flechas y puntos debajo */
+  .carousel {
+    gap: 2rem 0.75rem;
+    padding-bottom: 4rem;
+
+    /* Orden: título, fotos y abajo flechas y puntos */
+    .gallery-header {
+      flex: 0 0 100%;
+    }
+
+    .viewport {
+      order: 2;
+    }
+
+    .arrows {
+      order: 3;
+      gap: 0.75rem;
+    }
+
+    .arrow {
+      width: 3rem;
+      height: 3rem;
+    }
+
+    .dots {
+      order: 4;
+      flex: 1 1 auto;
+      justify-content: flex-end;
+    }
+  }
+
+  /* Hago más pequeño el hueco entre fotos y cambio las cuentas */
+  .slider {
+    gap: 1rem;
+    width: calc(300% + 2rem);
+
+    .card {
+      flex: 0 0 calc((100% - 8rem) / 9);
+    }
+
+    .caption {
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+  }
+
+  #s2:checked ~ .viewport .slider {
+    transform: translateX(calc((100% + 1rem) / -3));
+  }
+
+  #s3:checked ~ .viewport .slider {
+    transform: translateX(calc((100% + 1rem) * -2 / 3));
+  }
+
+  .latest-container,
+  .albums-container {
+    padding: 3rem 0;
+  }
+
+  /* Los bloques ocupan todo el ancho */
+  .latest-container {
+    align-items: stretch;
+    gap: 2rem;
+  }
+
+  /* Convierto las plataformas en cápsulas con el icono y el nombre */
+  .platforms {
+    flex-flow: row wrap;
+    gap: 0.6rem;
+  }
+
+  .platform {
+    flex-flow: row nowrap;
+    gap: 0.5rem;
+    height: 2.75rem;
+    padding: 0 1rem 0 0.4rem;
+    border: 1px solid #000;
+    border-radius: 2rem;
+  }
+
+  .latest .platform {
+    border-color: #fff;
+  }
+
+  .circle {
+    width: 2rem;
+    height: 2rem;
+    border: 0;
+    background-color: transparent;
+  }
+
+  .circle img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .platform .label {
+    color: inherit;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+  }
+
+  .latest .platform .label {
+    color: #fff;
+  }
+
+  .album-cover {
+    flex: 0 0 45%;
+  }
+
+  .album-title {
+    flex: 1;
+    padding: 0 1rem;
+  }
+
+  .album-number {
+    font-size: 4.5rem;
+  }
+
+  .album-title h4 {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+  }
+
+  .album-text {
+    padding: 0 1rem 1.5rem;
+  }
+
+  .videos-header {
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 4rem 0 3rem;
+  }
+
+  .videos-legend {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .featured-container {
+    padding: 3rem 0;
+  }
+
+  .bg-number {
+    font-size: 7rem;
+  }
+
+  .video-card {
+    gap: 1rem;
+  }
+
+  .video-card .video-player {
+    width: 38%;
+  }
+
+  .video-text .link {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+
+  .video-text .bg-number {
+    font-size: 4.5rem;
+  }
+
+  .video-text h4 {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+  }
+
+  .video-text h3 {
+    font-size: 1.25rem;
+    margin: 0.25rem 0;
+  }
+
+  .video-text p {
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .videos-body {
+    padding-top: 3rem;
+  }
+
+  .videos-footer {
+    padding: 3rem 0 4rem;
+  }
+
+  .next-show-body {
+    flex-flow: column nowrap;
+    padding: 3rem 0;
+  }
+
+  .next-date {
+    padding: 0;
+  }
+
+  .next-date .day {
+    font-size: 5rem;
+  }
+
+  .next-place {
+    padding: 0;
+    border: 0;
+  }
+
+  .next-place .city {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .date-card {
+    flex: 1 1 100%;
+  }
+
+  .tour-map {
+    padding: 3rem 0 4rem;
+  }
+
+  .address {
+    font-size: 1rem;
+  }
+
+  .contact-container {
+    padding: 3rem 0 4rem;
+  }
+
+  .intro {
+    font-size: 1.375rem;
+  }
+
+  .mail {
+    height: 6rem;
+  }
+
+  .mail-address {
+    font-size: 1.375rem;
+  }
+
+  .follow {
+    margin-top: 3rem;
+  }
+
+  /* En móvil enseño también el nombre de las redes */
+  .socials {
+    flex-flow: row wrap;
+    gap: 0.75rem;
+  }
+
+  .social {
+    width: auto;
+    height: 2.75rem;
+    padding: 0 1rem;
+    gap: 0.5rem;
+    border-radius: 2rem;
+  }
+
+  .social img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .social span {
+    display: inline;
+    font-family: "Jost", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .shop-container {
+    padding: 4rem 0;
+  }
+
+  .shop-header {
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .shop-body {
+    gap: 1.5rem 1rem;
+  }
+
+  .product-name {
+    font-size: 1.125rem;
+  }
+
+  .footer-top {
+    flex-flow: column nowrap;
+    gap: 2.5rem;
+    padding: 3.5rem 0 2.5rem;
+  }
+
+  /* En columna quito el ancho mínimo de 20rem */
+  .footer-izda,
+  .footer-dcha {
+    flex: none;
+    width: 100%;
+  }
+
+  .footer-logo {
+    font-size: 3rem;
+  }
+
+  .newsletter {
+    font-size: 1.25rem;
+  }
+
+  .footer-cols {
+    flex-flow: column nowrap;
+    gap: 1.5rem;
+    padding: 2rem 0;
+  }
+
+  .footer-col {
+    flex: none;
+    width: 100%;
+  }
+
+  .footer-links {
+    gap: 0.75rem 1.25rem;
+  }
+
+  .footer-links a {
+    font-size: 0.875rem;
+    letter-spacing: 0.12em;
+  }
+
+  /* Copyright e iconos en la misma fila si caben */
+  .footer-bottom {
+    flex-flow: row wrap;
+    gap: 1rem;
+  }
+}

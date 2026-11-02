@@ -1,0 +1,1119 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ADELE</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- ------------------------- HEADER -------------------------
+         En el HEADER irá mi nav ya que lo quiero hacer fijo luego con css.
+         Cada enlace es un ancla que baja a su sección 
+         (#home, #biography, #albums, #tour, #contact). -->
+    <header class="header">
+      <div class="flex-container">
+        <div class="item-1"></div>
+        <div class="item-2">
+          <nav>
+            <div class="logo"><a href="#home">ADELE</a></div>
+            <div class="nav">
+              <div class="nav-collapse">
+                <div class="navicon">
+                  <span></span><span></span><span></span><span></span
+                  ><span></span><span></span>
+                </div>
+              </div>
+              <ul class="menu-on">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#biography">Biography</a></li>
+                <li><a href="#albums">Albums</a></li>
+                <li><a href="#tour">On Tour</a></li>
+                <li><a href="#contact">Contact &amp; Shop</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class="item-3"></div>
+      </div>
+    </header>
+
+    <!-- ------------------------------ HERO ------------------------------ -->
+    <div class="container hero" id="home">
+      <div class="flex-container">
+        <div class="item-1"></div>
+        <div class="item-2">
+          <div class="legend">
+            <h1 class="line-1">ADELE</h1>
+            <div class="line-2">
+              Music is for the ears,<br />not for the eyes.
+            </div>
+            <!-- Pongo un ancla en los botones para ir a los álbumes (#albums)
+              y a la gira (#tour) -->
+            <div class="hero-buttons">
+              <a class="btn btn-white" href="#albums">Listen &rarr;</a>
+              <a class="btn btn-outline" href="#tour">Tickets &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <div class="item-3"></div>
+      </div>
+    </div>
+
+    <!-- --------------------------- BIOGRAPHY --------------------------- -->
+    <section class="section-header" id="biography">
+      <div class="section-header-container">
+        <div class="section-header-izda">
+          <span class="big-title">Biography</span>
+        </div>
+        <div class="section-header-dcha">
+          <h4>Hello</h4>
+          <h1>It’s me</h1>
+        </div>
+      </div>
+    </section>
+
+    <section class="biography">
+      <div class="biography-container">
+        <div class="bio-text">
+          <div class="bio-izda">
+            <h3>Early Life and Musical Beginnings</h3>
+            <p>
+              Adele Laurie Blue Adkins was born on <strong>May 5, 1988</strong>,
+              in Tottenham, London. Raised by a single mother, Adele discovered
+              her passion for music at an early age, drawing inspiration from
+              iconic artists such as Etta James, Ella Fitzgerald, and Lauryn
+              Hill. She attended the prestigious
+              <strong>BRIT School for Performing Arts &amp; Technology</strong>,
+              graduating in 2006. Shortly after posting a three-song demo on
+              MySpace for a class project, she caught the attention of XL
+              Recordings, signing <strong>her first record deal</strong>.
+            </p>
+          </div>
+          <div class="bio-dcha">
+            <h3>Breakthrough and Global Stardom</h3>
+            <p>
+              Adele’s debut album, 19 (2008), received critical acclaim and
+              earned her two Grammy Awards, including Best New Artist. However,
+              it was her second album, <strong>21 (2011)</strong>, that launched
+              her into international superstardom. Fueled by hits like "Rolling
+              in the Deep" and "Someone Like You", 21 became one of the
+              best-selling albums of the 21st century and won
+              <strong>six Grammy Awards in a single night</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="bio-photo"></div>
+
+    <section class="biography">
+      <div class="biography-container">
+        <div class="bio-text">
+          <div class="bio-izda">
+            <h3>Continued Success and Evolution</h3>
+            <p>
+              In 2015, Adele released <strong>25</strong>, featuring the global
+              smash hit "<strong>Hello</strong>". The record broke first-week
+              sales records worldwide and earned her
+              <strong>five more Grammys</strong>. After a brief hiatus, she
+              returned in 2021 with <strong>30</strong>, an emotionally raw and
+              mature album addressing love, heartbreak, and motherhood, proving
+              once again her unmatched storytelling ability.
+            </p>
+          </div>
+          <div class="bio-dcha">
+            <h3>Key Milestones &amp; Achievements</h3>
+            <ul class="milestones">
+              <li>
+                <strong>16 Grammy Awards:</strong> Winner of major categories
+                including Album of the Year and Song of the Year.
+              </li>
+              <li>
+                <strong>Academy Award (Oscar):</strong> Won Best Original Song
+                for “Skyfall” (2012).
+              </li>
+              <li>
+                <strong>Record-Breaking Sales:</strong> Over 120 million records
+                sold worldwide, making her one of the world’s best-selling
+                artists.
+              </li>
+              <li>
+                <strong>Order of the British Empire (MBE):</strong> Honored for
+                services to music in 2013.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ---------------- GALLERY ----------------
+             Hago el slider con radio buttons, como el realizado en clase
+             pero en vez de dos "cards" por pasada, son 3. -->
+        <div class="carousel">
+          <input type="radio" name="slide" id="s1" checked />
+          <input type="radio" name="slide" id="s2" />
+          <input type="radio" name="slide" id="s3" />
+
+          <div class="gallery-header">
+            <h4>Photo gallery</h4>
+            <h1>Through the lens</h1>
+          </div>
+
+          <!-- Meto las flechas en un div para que vayan juntas -->
+          <div class="arrows">
+            <label class="arrow prev p1">
+              <img src="assets/img/flecha-izquierda.svg" alt="Anterior" />
+            </label>
+            <label class="arrow prev p2" for="s1">
+              <img src="assets/img/flecha-izquierda.svg" alt="Anterior" />
+            </label>
+            <label class="arrow prev p3" for="s2">
+              <img src="assets/img/flecha-izquierda.svg" alt="Anterior" />
+            </label>
+            <label class="arrow next n1" for="s2">
+              <img src="assets/img/flecha-derecha.svg" alt="Siguiente" />
+            </label>
+            <label class="arrow next n2" for="s3">
+              <img src="assets/img/flecha-derecha.svg" alt="Siguiente" />
+            </label>
+            <label class="arrow next n3">
+              <img src="assets/img/flecha-derecha.svg" alt="Siguiente" />
+            </label>
+          </div>
+          <div class="viewport">
+            <!-- ------------------------- SLIDER ------------------------- 
+             Aquí están las 9 cards con el texto que he añadido de referencia -->
+            <div class="slider">
+              <div class="card">
+                <div class="pic"></div>
+                <p class="caption">Gaze</p>
+              </div>
+              <div class="card">
+                <div class="pic"></div>
+                <p class="caption">Joy</p>
+              </div>
+              <div class="card">
+                <div class="pic"></div>
+                <p class="caption">Presence</p>
+              </div>
+              <div class="card">
+                <div class="pic"></div>
+                <p class="caption">Reflection</p>
+              </div>
+              <div class="card">
+                <div class="pic"></div>
+                <p class="caption">Voice</p>
+              </div>
+              <div class="card">
+                <div class="pic"></div>
+                <p class="caption">Poise</p>
+              </div>
+              <div class="card">
+                <div class="pic"></div>
+                <p class="caption">Stillness</p>
+              </div>
+              <div class="card">
+                <div class="pic"></div>
+                <p class="caption">Warmth</p>
+              </div>
+              <div class="card">
+                <div class="pic"></div>
+                <p class="caption">Shadow</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ------------------------- SLIDER DOTS ------------------------- -->
+          <div class="dots">
+            <label for="s1"></label>
+            <label for="s2"></label>
+            <label for="s3"></label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ------------------------------- ALBUMS ------------------------------- -->
+    <section class="section-header" id="albums">
+      <div class="section-header-container">
+        <div class="section-header-izda">
+          <span class="big-title">Albums</span>
+        </div>
+        <div class="section-header-dcha">
+          <h4>Four albums</h4>
+          <h1>Discography</h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------- LATEST ALBUM ---------------------------- 
+     Hago una sección para el último álbum ya que es diferente a los demás.
+     En este llevaría además el Spotify insertado para reproducirlo desde
+     el sitio web. -->
+    <section class="latest">
+      <div class="latest-container">
+        <div class="latest-cover"><div class="cover cover-30"></div></div>
+        <div class="latest-text">
+          <h4>Latest album</h4>
+          <div class="album-number">30</div>
+          <p class="album-info">Released 19 November 2021 · 12 tracks</p>
+          <p>A record about change, self-understanding and moving forward.</p>
+
+          <div class="platforms">
+            <a
+              class="platform"
+              href="https://open.spotify.com/album/21jF5jlMtzo94wbxmJ18aa"
+              target="_blank"
+            >
+              <span class="circle"
+                ><img
+                  src="assets/img/icono-spotify.svg"
+                  alt="Spotify"
+                  width="28"
+                  height="28"
+              /></span>
+              <span class="label">Spotify</span>
+            </a>
+            <a
+              class="platform"
+              href="https://music.apple.com/us/search?term=Adele%2030"
+              target="_blank"
+            >
+              <span class="circle"
+                ><img
+                  src="assets/img/icono-apple-music.svg"
+                  alt="Apple Music"
+                  width="25"
+                  height="28"
+              /></span>
+              <span class="label">Apple Music</span>
+            </a>
+            <a
+              class="platform"
+              href="https://www.youtube.com/results?search_query=Adele+30+full+album"
+              target="_blank"
+            >
+              <span class="circle"
+                ><img
+                  src="assets/img/icono-youtube.svg"
+                  alt="YouTube"
+                  width="32"
+                  height="32"
+              /></span>
+              <span class="label">YouTube</span>
+            </a>
+          </div>
+        </div>
+        <!-- Inserto el reproductor de Spotify con el compartir e insertar
+         dentro del mismo -->
+        <div class="latest-spotify">
+          <iframe
+            data-testid="embed-iframe"
+            src="https://open.spotify.com/embed/album/21jF5jlMtzo94wbxmJ18aa?utm_source=generator&theme=0&si=36ed10da8d9b4e9c"
+            allowfullscreen=""
+            allow="
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              fullscreen;
+              picture-in-picture;
+            "
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------- ALBUM LIST ---------------------------- -->
+    <section class="albums">
+      <div class="albums-container">
+        <div class="album">
+          <div class="album-cover cover-25"></div>
+          <div class="album-title">
+            <h4>Third album</h4>
+            <div class="album-number">25</div>
+          </div>
+          <div class="album-text">
+            <p class="album-info">Released 20 November 2015 · 11 tracks</p>
+            <p>
+              Looking back with perspective. Bigger productions, the same honest
+              heart.
+            </p>
+            <div class="platforms">
+              <a
+                class="platform"
+                href="https://open.spotify.com/search/Adele%2025"
+                target="_blank"
+              >
+                <span class="circle"
+                  ><img
+                    src="assets/img/icono-spotify.svg"
+                    alt="Spotify"
+                    width="28"
+                    height="28"
+                /></span>
+                <span class="label">Spotify</span>
+              </a>
+              <a
+                class="platform"
+                href="https://music.apple.com/us/search?term=Adele%2025"
+                target="_blank"
+              >
+                <span class="circle"
+                  ><img
+                    src="assets/img/icono-apple-music.svg"
+                    alt="Apple Music"
+                    width="25"
+                    height="28"
+                /></span>
+                <span class="label">Apple Music</span>
+              </a>
+              <a
+                class="platform"
+                href="https://www.youtube.com/results?search_query=Adele+25+full+album"
+                target="_blank"
+              >
+                <span class="circle"
+                  ><img
+                    src="assets/img/icono-youtube.svg"
+                    alt="YouTube"
+                    width="32"
+                    height="32"
+                /></span>
+                <span class="label">YouTube</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="album">
+          <div class="album-cover cover-21"></div>
+          <div class="album-title">
+            <h4>Second album</h4>
+            <div class="album-number">21</div>
+          </div>
+          <div class="album-text">
+            <p class="album-info">Released 24 January 2011 · 11 tracks</p>
+            <p>
+              Raw, bluesy and unforgettable. The record that made Adele a
+              worldwide name.
+            </p>
+            <div class="platforms">
+              <a
+                class="platform"
+                href="https://open.spotify.com/search/Adele%2021"
+                target="_blank"
+              >
+                <span class="circle"
+                  ><img
+                    src="assets/img/icono-spotify.svg"
+                    alt="Spotify"
+                    width="28"
+                    height="28"
+                /></span>
+                <span class="label">Spotify</span>
+              </a>
+              <a
+                class="platform"
+                href="https://music.apple.com/us/search?term=Adele%2021"
+                target="_blank"
+              >
+                <span class="circle"
+                  ><img
+                    src="assets/img/icono-apple-music.svg"
+                    alt="Apple Music"
+                    width="25"
+                    height="28"
+                /></span>
+                <span class="label">Apple Music</span>
+              </a>
+              <a
+                class="platform"
+                href="https://www.youtube.com/results?search_query=Adele+21+full+album"
+                target="_blank"
+              >
+                <span class="circle"
+                  ><img
+                    src="assets/img/icono-youtube.svg"
+                    alt="YouTube"
+                    width="32"
+                    height="32"
+                /></span>
+                <span class="label">YouTube</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="album">
+          <div class="album-cover cover-19"></div>
+          <div class="album-title">
+            <h4>Debut album</h4>
+            <div class="album-number">19</div>
+          </div>
+          <div class="album-text">
+            <p class="album-info">Released 28 January 2008 · 12 tracks</p>
+            <p>
+              A young songwriter, a guitar and a voice that stops the room.
+              Soulful, intimate and full of early classics.
+            </p>
+            <div class="platforms">
+              <a
+                class="platform"
+                href="https://open.spotify.com/search/Adele%2019"
+                target="_blank"
+              >
+                <span class="circle"
+                  ><img
+                    src="assets/img/icono-spotify.svg"
+                    alt="Spotify"
+                    width="28"
+                    height="28"
+                /></span>
+                <span class="label">Spotify</span>
+              </a>
+              <a
+                class="platform"
+                href="https://music.apple.com/us/search?term=Adele%2019"
+                target="_blank"
+              >
+                <span class="circle"
+                  ><img
+                    src="assets/img/icono-apple-music.svg"
+                    alt="Apple Music"
+                    width="25"
+                    height="28"
+                /></span>
+                <span class="label">Apple Music</span>
+              </a>
+              <a
+                class="platform"
+                href="https://www.youtube.com/results?search_query=Adele+19+full+album"
+                target="_blank"
+              >
+                <span class="circle"
+                  ><img
+                    src="assets/img/icono-youtube.svg"
+                    alt="YouTube"
+                    width="32"
+                    height="32"
+                /></span>
+                <span class="label">YouTube</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --------------------------- MUSIC VIDEOS --------------------------- -->
+    <section class="videos">
+      <div class="videos-container">
+        <div class="videos-header">
+          <div class="videos-name">
+            <h4>From the albums</h4>
+            <h1>Press play</h1>
+          </div>
+          <div class="videos-legend">
+            <p>
+              One video for every album — from a young songwriter’s first single
+              to the latest comeback.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured">
+      <div class="featured-container">
+        <div class="featured-izda">
+          <div class="video-frame">
+            <!-- Inserto el vídeo de YouTube como hice con Spotify para los vídeos
+             desde compartir e insertar desde el mismo -->
+            <iframe
+              class="video-player"
+              src="https://www.youtube.com/embed/U3ASj1L6_sY"
+              title="Adele - Easy On Me"
+              allow="encrypted-media; picture-in-picture"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        <div class="featured-dcha">
+          <div class="bg-number">30</div>
+          <h4>Official video · 30</h4>
+          <h1>Easy On Me</h1>
+          <p>A record about change, self-understanding and moving forward.</p>
+          <a
+            class="link"
+            href="https://www.youtube.com/watch?v=U3ASj1L6_sY"
+            target="_blank"
+            >Watch on YouTube ↗</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="videos">
+      <div class="videos-container">
+        <div class="videos-body">
+          <div class="video-card">
+            <iframe
+              class="video-player"
+              src="https://www.youtube.com/embed/YQHsXMglC9A"
+              title="Adele - Hello"
+              allow="encrypted-media; picture-in-picture"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+            <div class="video-text">
+              <div class="bg-number">25</div>
+              <h4>Official video · 25</h4>
+              <h3>Hello</h3>
+              <p>The comeback single that broke records around the world.</p>
+              <a
+                class="link"
+                href="https://www.youtube.com/watch?v=YQHsXMglC9A"
+                target="_blank"
+                >Watch on YouTube ↗</a
+              >
+            </div>
+          </div>
+          <div class="video-card">
+            <iframe
+              class="video-player"
+              src="https://www.youtube.com/embed/rYEDA3JcQqw"
+              title="Adele - Rolling in the Deep"
+              allow="encrypted-media; picture-in-picture"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+            <div class="video-text">
+              <div class="bg-number">21</div>
+              <h4>Official video · 21</h4>
+              <h3>Rolling in the Deep</h3>
+              <p>Raw and bluesy, the song that made Adele a worldwide name.</p>
+              <a
+                class="link"
+                href="https://www.youtube.com/watch?v=rYEDA3JcQqw"
+                target="_blank"
+                >Watch on YouTube ↗</a
+              >
+            </div>
+          </div>
+          <div class="video-card">
+            <iframe
+              class="video-player"
+              src="https://www.youtube.com/embed/08DjMT-qR9g"
+              title="Adele - Chasing Pavements"
+              allow="encrypted-media; picture-in-picture"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+            <div class="video-text">
+              <div class="bg-number">19</div>
+              <h4>Official video · 19</h4>
+              <h3>Chasing Pavements</h3>
+              <p>The breakout single from 19, an early sign of that voice.</p>
+              <a
+                class="link"
+                href="https://www.youtube.com/watch?v=08DjMT-qR9g"
+                target="_blank"
+                >Watch on YouTube ↗</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="videos-footer">
+          <span class="label">More videos</span>
+          <a
+            class="link"
+            href="https://www.youtube.com/@adele/videos"
+            target="_blank"
+            >All videos on YouTube ↗</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ------------------------------ ON TOUR ------------------------------
+     Aquí he anclado en los botones de Map el que cada uno de los diferentes tour
+     te lleve al mapa de google que he embebido. Cada uno tiene su ancla
+     a su respectivo sitio. -->
+    <section class="section-header" id="tour">
+      <div class="section-header-container">
+        <div class="section-header-izda">
+          <span class="big-title">On Tour</span>
+        </div>
+        <div class="section-header-dcha">
+          <h4>Live dates</h4>
+          <h1>Upcoming shows</h1>
+        </div>
+      </div>
+    </section>
+
+    <div class="tour-photo"></div>
+
+    <section class="tour">
+      <div class="tour-container">
+        <div class="next-show">
+          <div class="next-show-body">
+            <div class="next-date">
+              <h4>Next show</h4>
+              <div class="day">12</div>
+              <span class="month">Mar 2027</span>
+            </div>
+            <div class="next-place">
+              <div class="city">London</div>
+              <span class="venue">Royal Albert Hall</span>
+              <span class="country">United Kingdom</span>
+            </div>
+            <div class="next-actions">
+              <a
+                class="btn btn-white"
+                href="https://www.royalalberthall.com/"
+                target="_blank"
+                >Tickets &rarr;</a
+              >
+              <!-- Con un ancla, este botón te llevaría al de London. -->
+              <a class="btn btn-outline" href="#mapa-london">Map</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="more-dates">
+          <span class="label">More dates</span>
+          <!-- Con un ancla, cada botón de Map te lleva a su ciudad, como
+           comenté arriba -->
+          <div class="dates-body">
+            <div class="date-card">
+              <div class="day">19</div>
+              <span class="month">Mar 2027</span>
+              <div class="city">Paris</div>
+              <span class="venue">Accor Arena</span>
+              <span class="country">France</span>
+              <div class="date-actions">
+                <a
+                  class="btn btn-black"
+                  href="https://www.accorarena.com/"
+                  target="_blank"
+                  >Tickets &rarr;</a
+                >
+                <a class="btn btn-outline" href="#mapa-paris">Map</a>
+              </div>
+            </div>
+            <div class="date-card">
+              <div class="day">02</div>
+              <span class="month">Apr 2027</span>
+              <div class="city">Barcelona</div>
+              <span class="venue">Palau Sant Jordi</span>
+              <span class="country">Spain</span>
+              <div class="date-actions">
+                <a
+                  class="btn btn-black"
+                  href="https://www.palausantjordi.cat/"
+                  target="_blank"
+                  >Tickets &rarr;</a
+                >
+                <a class="btn btn-outline" href="#mapa-barcelona">Map</a>
+              </div>
+            </div>
+            <div class="date-card">
+              <div class="day">24</div>
+              <span class="month">Apr 2027</span>
+              <div class="city">New York</div>
+              <span class="venue">Madison Square Garden</span>
+              <span class="country">United States</span>
+              <div class="date-actions">
+                <a
+                  class="btn btn-black"
+                  href="https://www.msg.com/madison-square-garden"
+                  target="_blank"
+                  >Tickets &rarr;</a
+                >
+                <a class="btn btn-outline" href="#mapa-newyork">Map</a>
+              </div>
+            </div>
+            <div class="date-card">
+              <div class="day">08</div>
+              <span class="month">May 2027</span>
+              <div class="city">Los Angeles</div>
+              <span class="venue">Hollywood Bowl</span>
+              <span class="country">United States</span>
+              <div class="date-actions">
+                <a
+                  class="btn btn-black"
+                  href="https://www.hollywoodbowl.com/"
+                  target="_blank"
+                  >Tickets &rarr;</a
+                >
+                <a class="btn btn-outline" href="#mapa-losangeles">Map</a>
+              </div>
+            </div>
+            <div class="date-card">
+              <div class="day">12</div>
+              <span class="month">Jun 2027</span>
+              <div class="city">Sydney</div>
+              <span class="venue">Sydney Opera House</span>
+              <span class="country">Australia</span>
+              <div class="date-actions">
+                <a
+                  class="btn btn-black"
+                  href="https://www.sydneyoperahouse.com/"
+                  target="_blank"
+                  >Tickets &rarr;</a
+                >
+                <a class="btn btn-outline" href="#mapa-sydney">Map</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ------------------------- VENUE MAPS -------------------------
+             Inserto los mapas de Google Maps con el compartir e insertar.
+             Cada uno tiene el id al que lleva su botón Map. -->
+        <div class="tour-map">
+          <div class="map-item" id="mapa-paris">
+            <h3>Paris: Accor Arena</h3>
+            <span class="address"
+              >8 Boulevard de Bercy, 75012 Paris · 19 Mar 2027</span
+            >
+            <div class="map">
+              <iframe
+                src="https://maps.google.com/maps?q=Accor%20Arena%2C%20Paris&amp;z=15&amp;output=embed"
+              ></iframe>
+            </div>
+          </div>
+          <div class="map-item" id="mapa-barcelona">
+            <h3>Barcelona: Palau Sant Jordi</h3>
+            <span class="address"
+              >Passeig Olímpic 5-7, 08038 Barcelona · 02 Apr 2027</span
+            >
+            <div class="map">
+              <iframe
+                src="https://maps.google.com/maps?q=Palau%20Sant%20Jordi%2C%20Barcelona&amp;z=15&amp;output=embed"
+              ></iframe>
+            </div>
+          </div>
+          <div class="map-item" id="mapa-newyork">
+            <h3>New York: Madison Square Garden</h3>
+            <span class="address"
+              >4 Pennsylvania Plaza, New York, NY 10001 · 24 Apr 2027</span
+            >
+            <div class="map">
+              <iframe
+                src="https://maps.google.com/maps?q=Madison%20Square%20Garden%2C%20New%20York&amp;z=15&amp;output=embed"
+              ></iframe>
+            </div>
+          </div>
+          <div class="map-item" id="mapa-losangeles">
+            <h3>Los Angeles: Hollywood Bowl</h3>
+            <span class="address"
+              >2301 N Highland Ave, Los Angeles, CA 90068 · 08 May 2027</span
+            >
+            <div class="map">
+              <iframe
+                src="https://maps.google.com/maps?q=Hollywood%20Bowl%2C%20Los%20Angeles&amp;z=15&amp;output=embed"
+              ></iframe>
+            </div>
+          </div>
+          <div class="map-item" id="mapa-sydney">
+            <h3>Sydney: Sydney Opera House</h3>
+            <span class="address"
+              >Bennelong Point, Sydney NSW 2000 · 12 Jun 2027</span
+            >
+            <div class="map">
+              <iframe
+                src="https://maps.google.com/maps?q=Sydney%20Opera%20House&amp;z=15&amp;output=embed"
+              ></iframe>
+            </div>
+          </div>
+          <!-- Pongo London el último para poder ocultarlo desde el CSS -->
+          <div class="map-item map-london" id="mapa-london">
+            <h3>Next show: Royal Albert Hall</h3>
+            <span class="address"
+              >Kensington Gore, London SW7 2AP · 12 Mar 2027</span
+            >
+            <div class="map">
+              <iframe
+                src="https://maps.google.com/maps?q=Royal%20Albert%20Hall%2C%20London&amp;z=15&amp;output=embed"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ------------------------- CONTACT & SHOP ------------------------- -->
+    <section class="section-header" id="contact">
+      <div class="section-header-container">
+        <div class="section-header-izda">
+          <span class="big-title">Contact &amp; Shop</span>
+        </div>
+        <div class="section-header-dcha">
+          <h4>Say hello</h4>
+          <h1>Let’s talk.</h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- ------------------------------ CONTACT ------------------------------ -->
+    <section class="contact">
+      <div class="contact-container">
+        <div class="contact-izda">
+          <p class="intro">
+            Press, bookings or simply a kind word. We read every message and
+            reply within 48 hours.
+          </p>
+          <div class="contact-photo"></div>
+          <form action="">
+            <label class="label" for="note">Or leave a note</label>
+            <textarea
+              id="note"
+              name="note"
+              class="note"
+              rows="1"
+              placeholder="Write your message here..."
+            ></textarea>
+            <button class="link" type="submit">Send &rarr;</button>
+          </form>
+        </div>
+        <div class="contact-dcha">
+          <!-- Con mailto: se abre el correo para escribir a esa dirección, dirección
+           inventada.  -->
+          <a class="mail" href="mailto:management@adele.com">
+            <span class="mail-text"
+              ><span class="label">Management</span
+              ><span class="mail-address">management@adele.com</span></span
+            >
+            <img
+              src="assets/img/icono-flecha-correo.svg"
+              alt="Escribir"
+              width="20"
+              height="20"
+            />
+          </a>
+          <a class="mail" href="mailto:press@adele.com">
+            <span class="mail-text"
+              ><span class="label">Press</span
+              ><span class="mail-address">press@adele.com</span></span
+            >
+            <img
+              src="assets/img/icono-flecha-correo.svg"
+              alt="Escribir"
+              width="20"
+              height="20"
+            />
+          </a>
+          <a class="mail" href="mailto:bookings@adele.com">
+            <span class="mail-text"
+              ><span class="label">Bookings</span
+              ><span class="mail-address">bookings@adele.com</span></span
+            >
+            <img
+              src="assets/img/icono-flecha-correo.svg"
+              alt="Escribir"
+              width="20"
+              height="20"
+            />
+          </a>
+          <span class="label follow">Follow</span>
+          <div class="socials">
+            <a
+              class="social"
+              href="https://www.instagram.com/adele/"
+              target="_blank"
+            >
+              <img
+                src="assets/img/icono-instagram.svg"
+                alt="Instagram"
+                width="28"
+                height="28"
+              />
+              <span>Instagram</span>
+            </a>
+            <a
+              class="social"
+              href="https://www.facebook.com/adele"
+              target="_blank"
+            >
+              <img
+                src="assets/img/icono-facebook.svg"
+                alt="Facebook"
+                width="28"
+                height="28"
+              />
+              <span>Facebook</span>
+            </a>
+            <a class="social" href="https://x.com/adele" target="_blank">
+              <img
+                src="assets/img/icono-x.svg"
+                alt="X"
+                width="28"
+                height="28"
+              />
+              <span>X</span>
+            </a>
+            <a
+              class="social"
+              href="https://www.youtube.com/@adele"
+              target="_blank"
+            >
+              <img
+                src="assets/img/icono-youtube-red.svg"
+                alt="YouTube"
+                width="28"
+                height="28"
+              />
+              <span>YouTube</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -------------------------------- SHOP --------------------------------
+     Al pulsar Add to cart en la sección de compra te lleva a la página oficial de Adele.
+     Pero estos son objetos inventados, no son reales dentro de su página oficial -->
+    <section class="shop">
+      <div class="shop-container">
+        <div class="shop-header">
+          <div class="shop-name">
+            <h4>Shop</h4>
+            <h1>Official merchandise</h1>
+          </div>
+          <div class="shop-legend">
+            <a class="link" href="https://shop.adele.com/" target="_blank"
+              >View all products</a
+            >
+          </div>
+        </div>
+        <div class="shop-body">
+          <div class="product">
+            <div class="product-img"></div>
+            <span class="product-name">30 · Vinyl LP</span>
+            <span class="product-info">Standard black vinyl</span>
+            <span class="price">£34.99</span>
+            <a class="link" href="https://shop.adele.com/" target="_blank"
+              >Add to cart +</a
+            >
+          </div>
+          <div class="product">
+            <div class="product-img"></div>
+            <span class="product-name">21 · Vinyl LP</span>
+            <span class="product-info">Standard black vinyl</span>
+            <span class="price">£32.99</span>
+            <a class="link" href="https://shop.adele.com/" target="_blank"
+              >Add to cart +</a
+            >
+          </div>
+          <div class="product">
+            <div class="product-img"></div>
+            <span class="product-name">Tour Poster 2027</span>
+            <span class="product-info">50 × 70 cm, matte print</span>
+            <span class="price">£19.99</span>
+            <a class="link" href="https://shop.adele.com/" target="_blank"
+              >Add to cart +</a
+            >
+          </div>
+          <div class="product">
+            <div class="product-img"></div>
+            <span class="product-name">Live 2027 T-Shirt</span>
+            <span class="product-info">Black, 100% cotton</span>
+            <span class="price">£29.99</span>
+            <a class="link" href="https://shop.adele.com/" target="_blank"
+              >Add to cart +</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ------------------------------ FOOTER ------------------------------ -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-top">
+          <div class="footer-izda">
+            <div class="footer-logo">ADELE</div>
+            <span class="tagline">Official website</span>
+          </div>
+          <div class="footer-dcha">
+            <span class="label">Newsletter</span>
+            <p class="newsletter">
+              News, tour dates and new releases, straight to your inbox.
+            </p>
+            <form action="">
+              <input
+                class="email-field"
+                type="text"
+                name="email"
+                placeholder="Your email address"
+              />
+              <button class="link" type="submit">Subscribe &rarr;</button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-cols">
+          <!-- he puesto el nav en el footer como no lo comentaste en clase,
+           aunque no se si es redundante ya que lo he puesto. -->
+          <div class="footer-col">
+            <span class="label">Menu</span>
+            <ul class="footer-links">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#biography">Biography</a></li>
+              <li><a href="#albums">Albums</a></li>
+              <li><a href="#tour">On Tour</a></li>
+              <li><a href="#contact">Contact &amp; Shop</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <!-- Los términos legales, etc. no llevan a ningún sitio. -->
+            <span class="label">Legal</span>
+            <ul class="footer-links">
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Use</a></li>
+              <li><a href="#">Cookie Settings</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <!-- Las redes sociales sí llevan sus anclas a sus diferentes
+            páginas oficiales. -->
+          <span class="copyright">© 2026 ADELE. All rights reserved.</span>
+          <div class="footer-icons">
+            <a href="https://www.instagram.com/adele/" target="_blank"
+              ><img
+                src="assets/img/icono-instagram-blanco.svg"
+                alt="Instagram"
+                width="20"
+                height="20"
+            /></a>
+            <a href="https://www.facebook.com/adele" target="_blank"
+              ><img
+                src="assets/img/icono-facebook-blanco.svg"
+                alt="Facebook"
+                width="20"
+                height="20"
+            /></a>
+            <a href="https://x.com/adele" target="_blank"
+              ><img
+                src="assets/img/icono-x-blanco.svg"
+                alt="X"
+                width="20"
+                height="20"
+            /></a>
+            <a href="https://www.youtube.com/@adele" target="_blank"
+              ><img
+                src="assets/img/icono-youtube-blanco.svg"
+                alt="YouTube"
+                width="20"
+                height="20"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
